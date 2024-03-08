@@ -62,7 +62,7 @@
         {% when 'email' %}
           {% assign email = site.social.email %}
           {%- capture url -%}
-            https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ email }}
+            javascript:{{ email }}
           {%- endcapture -%}
         {% when 'rss' %}
           {% assign url = '/feed.xml' | relative_url %}
@@ -76,10 +76,6 @@
           aria-label="{{ entry.type }}"
           {% assign link_types = '' %}
 
-		  {% if entry.type == 'email' %}
-            target="_blank"
-          {% endif %}
-
           {% unless entry.noblank %}
             target="_blank"
             {% assign link_types = 'noopener noreferrer' %}
@@ -92,6 +88,8 @@
           {% unless link_types == empty %}
             rel="{{ link_types }}"
           {% endunless %}
+
+          onClick="mCheck(this.href); return false;"
         >
           <i class="{{ entry.icon }}"></i>
         </a>
