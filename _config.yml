@@ -204,3 +204,16 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+jekyll_compose:
+  default_front_matter:
+    posts:
+      author: "zhyun kim"
+      description: ""
+      image:
+      categories:
+        - ""
+      tags:
+        - ""
+      published: false
+      sitemap: false
