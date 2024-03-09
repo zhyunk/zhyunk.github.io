@@ -208,12 +208,10 @@ jekyll-archives:
 jekyll_compose:
   default_front_matter:
     posts:
-      author: "zhyun kim"
-      description: ""
-      image:
+      author:
       categories:
         - ""
       tags:
         - ""
-      published: false
-      sitemap: false
+      mermaid: false
+      pin: false
