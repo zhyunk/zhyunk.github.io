@@ -3,6 +3,9 @@
 - type: github
   icon: "fab fa-github"
 
+- type: tistory
+  icon: "fa-sharp fa-solid fa-t"
+
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab

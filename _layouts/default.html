@@ -1,7 +1,6 @@
 ---
 layout: compress
 ---
-
 <!doctype html>
 
 {% include origin-type.html %}
@@ -86,8 +85,14 @@ layout: compress
   </body>
   <script>
     function mCheck(o) {
-      var email = o.replace('javascript:', '');
-      var sendUrl = (isMobile ? 'mailto:' : 'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=') + email;
+      var target = 'javascript:';
+      var sendUrl = o;
+
+      if (o.includes(target)) {
+        var email = o.replace(target, '');
+        sendUrl = (isMobile ? 'mailto:' : 'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=') + email;
+      }
+
       window.open(sendUrl, '_blank');
     }
   </script>

@@ -59,6 +59,10 @@
           {%- capture url -%}
             https://{{ entry.type }}.com/{{ site[entry.type].username }}
           {%- endcapture -%}
+        {% when 'tistory' %}
+          {%- capture url -%}
+            {{ site.social.links[1] }}
+          {%- endcapture -%}
         {% when 'email' %}
           {% assign email = site.social.email %}
           {%- capture url -%}
