@@ -22,3 +22,6 @@ package-lock.json
 
 # obsidian
 .obsidian
+_posts/backup
+_posts/assets/today
+_posts/today
