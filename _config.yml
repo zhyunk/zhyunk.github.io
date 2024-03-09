@@ -10,12 +10,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: zhyun kim 🥸
+title: 얼거스 개발일지
 
-tagline: 얼거스 개발일지 # it will display as the sub-title
+tagline: ⌨️ # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  얼거스 개발 일지 ⌨️🥸
+  얼거스 개발 일지 ⌨️
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -77,7 +77,7 @@ img_cdn: ""
 # the avatar on sidebar, support local or CORS resources
 #
 # e.g. '/commons/avatar.jpg'
-avatar: "https://avatars.githubusercontent.com/u/153184458"
+avatar: "/assets/img/avatar.png"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
