@@ -1,29 +1,53 @@
 ---
 layout: post
-title: "Github Pages Blog 작업 기록 1"
+title: Github Pages Blog 설정 기록
 date: 2024-03-10 16:41:36 +0900
 author: zhyun
-categories: [Github Pages Blog]
-tags: [Jekyll, Blog]
+categories:
+  - Github Pages Blog
+tags:
+  - Jekyll
+  - Blog
 mermaid: false
 pin: false
 ---
 
-# 1. 기록하지 못한 내용
-> 원본 기록 : [https://github.com/zhyunk/zhyunk.github.io/wiki#-이전-레포지토리에서-작업](https://github.com/zhyunk/zhyunk.github.io/wiki#-이전-레포지토리에서-작업)
+> 원본 기록 : [https://github.com/zhyunk/zhyunk.github.io/wiki](https://github.com/zhyunk/zhyunk.github.io/wiki)
 {: .prompt-tip }
-- 프로필 이미지 & 게시글 이미지 주소 입력 형태 설정
-- 트위터 아이콘 삭제
 
-<br><br>
-
-# 2. 기록한 내용
-> 원본 기록 : [https://github.com/zhyunk/zhyunk.github.io/wiki#-현재-레포지토리에서-작업](https://github.com/zhyunk/zhyunk.github.io/wiki#-현재-레포지토리에서-작업)
-{: .prompt-tip }
+## 1. 프로필 이미지 & 게시글 이미지 주소 입력 형태 설정
+-  \_config.yml  
+  ```yml
+  # e.g. 'https://chirpy-img.netlify.app'
+  img_cdn: ""
+```
+img_cdn 값을 빈 값으로 두면 post 게시글에서 이미지 주소를 읽을 때 `전체 url`을 작성했다면 url을 그대로 읽고, `/파일/경로`를 적었을 때 깃허브 레포지토리를 루트로 해서 파일을 읽어온다.  
+<br>
+img_cdn 값을 입력해두면 post 게시글에서 http 등 프로토콜로 시작하는 경로를 입력할 경우 img_cdn값 다음에 프로토콜이 붙어서 해석되기 때문에 에러 발생
 
 <br>
 
-### 1. 프로필 이미지 테두리 흰색 선 삭제
+## 2. 트위터 아이콘 삭제
+
+-  \_data\\contact.yml  
+  아래 부분 삭제  
+  ```yml  
+  ― type: twitter
+  　icon: "" 
+    ```
+
+- \_includes\\sidebar.html  
+  아래 부분 삭제  
+  ```liquid
+  {% raw %}{% when 'twitter' %}{% endraw %}  
+	  {% raw %}{%- capture url -%}{% endraw %}  
+		  ..  
+	  {% raw %}{%- endcapture -%}{% endraw %}
+  ```
+
+<br>
+
+## 3. 프로필 이미지 테두리 흰색 선 삭제
 - _sass/addon/commons.scss  
     [https://github.com/zhyunk/zhyunk.github.io/blob/4a5fde239f24d721ee6d7beb3789c37f63bad7f0/_sass/addon/commons.scss#L735-L735](https://github.com/zhyunk/zhyunk.github.io/blob/4a5fde239f24d721ee6d7beb3789c37f63bad7f0/_sass/addon/commons.scss#L735-L735)  
     ```css
@@ -36,7 +60,7 @@ pin: false
     
 <br>
 
-### 2. 파비콘, 아바타 등록
+## 4. 파비콘, 아바타 등록
 
 [](https://github.com/zhyunk/zhyunk.github.io/wiki#2-%ED%8C%8C%EB%B9%84%EC%BD%98-%EC%95%84%EB%B0%94%ED%83%80-%EB%93%B1%EB%A1%9D)
 
@@ -46,7 +70,7 @@ pin: false
 
 <br>
 
-### 3. 폰트 변경
+## 5. 폰트 변경
 
 [](https://github.com/zhyunk/zhyunk.github.io/wiki#3-%ED%8F%B0%ED%8A%B8-%EB%B3%80%EA%B2%BD)
 
@@ -54,7 +78,7 @@ pin: false
 
 <br>
 
-### 4. 이메일 아이콘 클릭시 실행되는 스크립트 수정
+## 6. 이메일 아이콘 클릭시 실행되는 스크립트 수정
 
 [](https://github.com/zhyunk/zhyunk.github.io/wiki#4-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%95%84%EC%9D%B4%EC%BD%98-%ED%81%B4%EB%A6%AD%EC%8B%9C-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%88%98%EC%A0%95)
 
@@ -106,7 +130,7 @@ pin: false
     
 <br>
 
-### 5. 깃허브 아이콘과 이메일 아이콘 사이에 티스토리 블로그 아이콘 & 링크 추가
+## 7. 깃허브 아이콘과 이메일 아이콘 사이에 티스토리 블로그 아이콘 & 링크 추가
 
 [](https://github.com/zhyunk/zhyunk.github.io/wiki#5-%EA%B9%83%ED%97%88%EB%B8%8C-%EC%95%84%EC%9D%B4%EC%BD%98%EA%B3%BC-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%82%AC%EC%9D%B4%EC%97%90-%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%95%84%EC%9D%B4%EC%BD%98--%EB%A7%81%ED%81%AC-%EC%B6%94%EA%B0%80)
 
