@@ -23,7 +23,7 @@ pin: false
 
 <br>
 
-- ### 1. 프로필 이미지 테두리 흰색 선 삭제
+### 1. 프로필 이미지 테두리 흰색 선 삭제
 - _sass/addon/commons.scss  
     [https://github.com/zhyunk/zhyunk.github.io/blob/4a5fde239f24d721ee6d7beb3789c37f63bad7f0/_sass/addon/commons.scss#L735-L735](https://github.com/zhyunk/zhyunk.github.io/blob/4a5fde239f24d721ee6d7beb3789c37f63bad7f0/_sass/addon/commons.scss#L735-L735)  
     ```css
