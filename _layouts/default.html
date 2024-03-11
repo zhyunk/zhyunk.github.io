@@ -83,17 +83,4 @@ layout: compress
 
     {% include_cached search-loader.html lang=lang %}
   </body>
-  <script>
-    function mCheck(o) {
-      var target = 'javascript:';
-      var sendUrl = o;
-
-      if (o.includes(target)) {
-        var email = o.replace(target, '');
-        sendUrl = (isMobile ? 'mailto:' : 'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=') + email;
-      }
-
-      window.open(sendUrl, '_blank');
-    }
-  </script>
 </html>

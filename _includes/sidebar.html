@@ -64,9 +64,9 @@
             {{ site.social.links[1] }}
           {%- endcapture -%}
         {% when 'email' %}
-          {% assign email = site.social.email %}
+          {% assign email = site.social.email | split: '@' %}
           {%- capture url -%}
-            javascript:{{ email }}
+            javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))
           {%- endcapture -%}
         {% when 'rss' %}
           {% assign url = '/feed.xml' | relative_url %}
@@ -92,8 +92,6 @@
           {% unless link_types == empty %}
             rel="{{ link_types }}"
           {% endunless %}
-
-          onClick="mCheck(this.href); return false;"
         >
           <i class="{{ entry.icon }}"></i>
         </a>

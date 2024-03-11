@@ -133,11 +133,6 @@
 
   <!-- JavaScript -->
 
-  <script>
-    var userAgent = navigator.userAgent.toLowerCase();
-    var isMobile = /iphone|ipad|ipod|android/.test(userAgent);
-  </script>
-
   {% unless site.theme_mode %} {% include mode-toggle.html %} {% endunless %}
   {% include metadata-hook.html %}
 </head>
