@@ -8,6 +8,7 @@ categories:
 tags:
   - Jekyll
   - Blog
+  - Setting
 mermaid: false
 pin: false
 ---
@@ -78,56 +79,20 @@ img_cdn 값을 입력해두면 post 게시글에서 http 등 프로토콜로 시
 
 <br>
 
-## 6. 이메일 아이콘 클릭시 실행되는 스크립트 수정
+## 6. 이메일 보내기 새 창에서 실행
 
 [](https://github.com/zhyunk/zhyunk.github.io/wiki#4-%EC%9D%B4%EB%A9%94%EC%9D%BC-%EC%95%84%EC%9D%B4%EC%BD%98-%ED%81%B4%EB%A6%AD%EC%8B%9C-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%88%98%EC%A0%95)
+- \_includes/sidebar.html  
+  [https://github.com/zhyunk/zhyunk.github.io/blob/ab8011e7e43bc3f6eaf3d6d23d0441ed51c27094/_includes/sidebar.html#L69](https://github.com/zhyunk/zhyunk.github.io/blob/ab8011e7e43bc3f6eaf3d6d23d0441ed51c27094/_includes/sidebar.html#L69)  
+  ```liquid  
+  {% raw %}{% when 'email' %}
+	  {% assign email = site.social.email | split: '@' %}
+	  {%- capture url -%}
+		  javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))
+	  {%- endcapture -%}{% endraw %}
+   ```
 
-- 이메일 기본 출력 코드 수정  
-    [https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L66-L70](https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L66-L70)  
-    ```liquid 
-    {% raw %}{% when 'email' %}{% endraw %}
-		{% raw %}{% assign email = site.social.email %}{% endraw %}
-		{% raw %}{%- capture url -%}{% endraw %}
-		  javascript:{% raw %}{{ email }}{% endraw %}
-		{% raw %}{%- endcapture -%}{% endraw %}  
-    ```
-{: file='_includes/sidebar.html'}    
 
-<br>
-
-- 아이콘 a 태그에 onClick 추가  
-    [https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L96](https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L96)    
-    ```html
-    <a .. onClick="mCheck(this.href); return false;"/>
-    ```
-    
-<br>
-
-- mobile/pc 확인 스크립트 작성  
-    [https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/head.html#L136-L139](https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/head.html#L136-L139)  
-    ```js
-    var userAgent = navigator.userAgent.toLowerCase();
-	var isMobile = /iphone|ipad|ipod|android/.test(userAgent);
-    ```
-    
-<br>
-
-- onClick 실행 함수 작성  
-    [https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_layouts/default.html#L87-L97](https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_layouts/default.html#L87-L97)  
-    ```js
-    function mCheck(o) {
-	  var target = 'javascript:';
-	  var sendUrl = o;
-	  
-	  if (o.includes(target)) {
-	    var email = o.replace(target, '');
-	    sendUrl = (isMobile ? 'mailto:' : 'https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=') + email;
-	  }
-	  
-	  window.open(sendUrl, '_blank');
-	}
-    ```
-    
 <br>
 
 ## 7. 깃허브 아이콘과 이메일 아이콘 사이에 티스토리 블로그 아이콘 & 링크 추가
@@ -160,8 +125,9 @@ img_cdn 값을 입력해두면 post 게시글에서 http 등 프로토콜로 시
 - 티스토리 아이콘 출력 : _includes/sidebar.html  
     [https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L62-L65](https://github.com/zhyunk/zhyunk.github.io/blob/d69360c57b92f6d45651310a539e89b430ed5581/_includes/sidebar.html#L62-L65)  
     ```liquid  
-    {% raw %}{% when 'tistory' %}{% endraw %}
-      {% raw %}{%- capture url -%}{% endraw %}
-          {% raw %}{{ site.social.links[1] }}{% endraw %}
-      {% raw %}{%- endcapture -%}{% endraw %}          
+    {% raw %}{% when 'tistory' %}
+      {%- capture url -%}
+          {{ site.social.links[1] }}
+      {%- endcapture -%}{% endraw %}          
     ```
+
