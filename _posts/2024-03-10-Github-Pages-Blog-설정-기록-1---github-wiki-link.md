@@ -131,3 +131,51 @@ img_cdn 값을 입력해두면 post 게시글에서 http 등 프로토콜로 시
       {%- endcapture -%}{% endraw %}          
     ```
 
+
+<br>
+
+## 8. comments - giscus 설정
+
+[](https://github.com/zhyunk/zhyunk.github.io/wiki#6-comments---giscus-%EC%84%A4%EC%A0%95)
+
+giscus.app을 통해 설정 정보를 얻어야 한다 (repo_id, category, category_id)
+
+[https://giscus.app/](https://giscus.app/) 사이트를 통해서 값을 입력하면서 쭉 따라가다가 마지막에 script가 나오면 테마에 적용할 차례가 된다.
+
+(24.03.11 기준) crispy 테마를 사용하는 경우 \_config.yml의 설정 값에 comments.active 필드가 없는데, 추가해주어야 댓글창이 노출된다.
+
+그리고 lang 값을 한국어로 지정한 경우, ko가 아닌 값을 입력했다면 giscus를 적용함에 있어서 오류가 발생한다. 따라서 lang값에 ko가 아닌 값(ex. ko-KR)을 입력한 경우 `comments.giscus.lang`값에 `ko`를 입력해주어야 한다.
+
+[https://github.com/zhyunk/zhyunk.github.io/commit/49c0b0cc2fc0d6d3df4038a39d1b94132115f215](https://github.com/zhyunk/zhyunk.github.io/commit/49c0b0cc2fc0d6d3df4038a39d1b94132115f215)
+
+```yaml
+comments:
+  active: giscus
+  provider: giscus 
+  ...
+  giscus:
+    repo: zhyunk/zhyunk.github.io
+    repo_id: asdasd
+    category: General
+    category_id: asdasd
+    mapping: # optional, default to 'pathname'
+    input_position: # optional, default to 'bottom'
+    lang: ko 
+    reactions_enabled: # optional, default to the value of `1`
+```
+<br>
+
+## 9. 테마 모드 스위치 항상 기능하도록 설정
+
+\_config.yml에서 `theme_mode` 에 값을 지정하면 사이드바 하단의 테마 모드 변경 스위치가 사라지기 때문에, 항상 스위치가 떠있고 기능하도록 수정   
+
+- \_includes/head.html : `{% raw %}{% unless site.theme_mode %}`와 `{% endunless %}{% endraw %}` 삭제  
+  [https://github.com/zhyunk/zhyunk.github.io/blob/9ed09acdd7284212b420456cb4404dfbb4a9f1e9/_includes/head.html#L136](https://github.com/zhyunk/zhyunk.github.io/blob/9ed09acdd7284212b420456cb4404dfbb4a9f1e9/_includes/head.html#L136)  
+  <br>
+  
+- \_includes/sidebar.html : `{% raw %}{% unless site.theme_mode %}`와 `{% endunless %}{% endraw %}` 삭제  
+  [https://github.com/zhyunk/zhyunk.github.io/blob/9ed09acdd7284212b420456cb4404dfbb4a9f1e9/_includes/sidebar.html#L46-L52](https://github.com/zhyunk/zhyunk.github.io/blob/9ed09acdd7284212b420456cb4404dfbb4a9f1e9/_includes/sidebar.html#L46-L52)   
+  
+
+
+
