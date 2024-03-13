@@ -42,15 +42,8 @@
     </ul>
   </nav>
 
+
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
-    <button type="button" class="mode-toggle btn" aria-label="Switch Mode">
-      <i class="fas fa-adjust"></i>
-    </button>
-
-    {% if site.data.contact.size > 0 %}
-      <span class="icon-border"></span>
-    {% endif %}
-
     {% for entry in site.data.contact %}
       {% case entry.type %}
         {% when 'github' %}
@@ -95,6 +88,12 @@
         </a>
       {% endif %}
     {% endfor %}
+  </div>
+
+  <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
+    <button type="button" class="mode-toggle btn" aria-label="Switch Mode">
+      <i class="fas fa-adjust"></i>
+    </button>
   </div>
   <!-- .sidebar-bottom -->
 </aside>
