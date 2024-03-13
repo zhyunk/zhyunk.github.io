@@ -33,8 +33,7 @@ social:
     # The first element serves as the copyright owner's link
     - https://github.com/zhyunk # github
     - https://blog.zhyun.kim    # tistory
-    # Uncomment below to add more social links
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/zhyun926
 
 # Site Verification Settings
 webmaster_verifications:
