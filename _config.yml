@@ -219,3 +219,14 @@ jekyll_compose:
         - ""
       mermaid: false
       pin: false
+
+# custom field
+left: "{: .left}
+
+<div style='clear:both;'></div>"
+
+right: "{: .right}
+
+<div style='clear:both;'></div>"
+
+
