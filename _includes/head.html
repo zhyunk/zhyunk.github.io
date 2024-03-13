@@ -38,19 +38,19 @@
   src=site.social_preview_image absolute=true %} {%- endcapture -%}
     {%- capture og_image -%}
   <meta property="og:image" content="{{ img_url }}" />
-  {%- endcapture -%}
+    {%- endcapture -%}
     {%- capture twitter_image -%}
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:image" content="{{ img_url }}" />
-  {%- endcapture -%}
-    {% assign old_meta_clip = '
-  <meta name="twitter:card" content="summary" />
-  ' %}
+    {%- endcapture -%}
+    {% assign old_meta_clip = '<meta name="twitter:card" content="summary" />' %}
     {% assign new_meta_clip = og_image | append: twitter_image %}
     {% assign seo_tags = seo_tags | replace: old_meta_clip, new_meta_clip %}
   {% endif %}
   {{ seo_tags }}
-
+  {{ if site.webmaster_verifications.naver }}
+  <meta name="naver-site-verification" content="{{ site.webmaster_verifications.naver }}" />
+  {{ endif }}
   <title>
     {%- unless page.layout == 'home' -%}
       {{ page.title | append: ' | ' }}
