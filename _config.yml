@@ -235,4 +235,9 @@ br-3: "<br><br><br>"
 
 target-blank: "{: target='\_blank'}"
 
+line: "<br>
+
+<hr>
+
+<br>"
 
