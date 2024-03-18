@@ -50,11 +50,7 @@ public class Article {
 public class Article {
 ```
 
-<br>
----
-
-<br>
-
+{{ site.line }}
 ## @SQLRestriction
 
 <https://docs.jboss.org/hibernate/orm/6.3/javadocs/org/hibernate/annotations/SQLRestriction.html>{: target='\_blank'}  
@@ -75,18 +71,15 @@ public class Article {
 
 <br>
 
-데이터는 변함이 없는데 where 조건이 자주 변하게 되는 상황이 온다면 메모리에서 필터링을 수행하는 `@Filter`를 사용하는게 더 나을 것 같다는 생각을 했다.  
+데이터는 변함이 없는데 where 조건이 자주 변하게 되는 상황이 온다면 메모리에서 필터링을 수행하는 `@Filter`를 사용하는게 더 나을 것 같다는 생각을 했고, 
 
-하지만 where 조건이 거의 변하지 않고 JPA를 사용하면서 해당 엔티티의 모든 조회되는 데이터에 적용해야 하는 조건이 있다면(예를 들면 게시판의 논리 삭제된 게시글 필터링) `@SQLRestriction`을 사용하는게 좋을 것 같다는 생각을 하게되었다.    
+해당 엔티티의 모든 조회되는 데이터에 적용해야 하는 조건이 있다면(예를 들면 게시판의 논리 삭제된 게시글 필터링) `@SQLRestriction`을 사용하는게 좋을 것 같다는 생각을 하게되었다.    
 
-<br><br><br>
-
+{{ site.line }}
 
 > ## Hibernate Document
 > <https://docs.jboss.org/hibernate/stable/orm/javadocs/org/hibernate/annotations/package-summary.html>{: target='_blank'}    
 {: .prompt-tip}  
-JPA 사용 중 Deprecated 객체를 만나면 위 사이트에 가서 먼저 검색해보면 좋을 것 같다!  
-
-
+JPA 사용 중 Deprecated 객체를 만나면 여기서 먼저 검색해보면 좋을 것 같다!  
 
 
